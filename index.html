@@ -83,6 +83,57 @@ button.card.card-front{display:block;padding:0;perspective:1200px;background:tra
 
 .card-stack,.card-front,.card-front *{touch-action:none!important;overscroll-behavior:contain}
 .card-stack{overscroll-behavior:contain;overflow:clip}
+
+body[data-mode="dictation"] header,body[data-mode="dictation"] .page-heading,body[data-mode="dialog"] header,body[data-mode="dialog"] .page-heading{display:none!important}
+body[data-mode="dictation"] .right-stack,body[data-mode="dialog"] .right-stack{display:none!important}
+body[data-mode="dictation"] #app .layout,body[data-mode="dialog"] #app .layout{display:block;width:100%}
+body[data-mode="dictation"] #app .panel,body[data-mode="dialog"] #app .panel{width:100%;max-width:760px;margin:10px auto;padding:16px}
+body[data-mode="dictation"] .panel-top,body[data-mode="dialog"] .panel-top{justify-content:flex-end;margin:0 0 10px}
+body[data-mode="dictation"] .panel-top h2,body[data-mode="dialog"] .panel-top h2{display:none}
+body[data-mode="dictation"] .panel-top select,body[data-mode="dialog"] .panel-top select{max-width:100%;min-height:42px}
+body[data-mode="dictation"] .listen-area{display:flex;align-items:center;justify-content:center;gap:10px;text-align:left;background:transparent;padding:0;margin:0 0 10px}
+body[data-mode="dictation"] .listen-area p{margin:0;font-size:14px;line-height:1.35}
+body[data-mode="dictation"] .listen-big{flex:0 0 54px;width:54px;height:54px;font-size:23px}
+body[data-mode="dictation"] .listen-area .audio-btn{min-height:44px;padding:8px 11px;white-space:nowrap}
+body[data-mode="dictation"] #dict-form{margin:0}
+body[data-mode="dictation"] #dict-form>.input-label{display:none}
+body[data-mode="dictation"] .answer-input{min-height:48px;padding:11px 13px}
+body[data-mode="dictation"] .chars{gap:6px;margin:7px 0}
+body[data-mode="dictation"] .chars button{min-width:36px;min-height:36px}
+body[data-mode="dictation"] .actions{gap:8px;margin:9px 0}
+body[data-mode="dictation"] .actions button{min-height:44px;padding:9px 10px}
+body[data-mode="dictation"] .feedback{padding:10px;margin-top:8px}
+body[data-mode="dictation"] .hint-text:not(#dict-hint){display:none}
+body[data-mode="dictation"] #dict-hint:empty{display:none}
+body[data-mode="dictation"] [data-action="dict-hint"]{padding:5px 0}
+body[data-mode="dictation"] .progress-track{margin:10px 0 6px}
+body[data-mode="dictation"] .progress-label{font-size:12px}
+body[data-mode="dialog"] .practice-label{display:none}
+body[data-mode="dialog"] .chat{min-height:0;max-height:32svh;gap:8px;padding:0 1px 8px}
+body[data-mode="dialog"] .bubble{max-width:100%;padding:10px 12px;border-radius:11px}
+body[data-mode="dialog"] .speaker{font-size:12px}
+body[data-mode="dialog"] .bubble p{font-size:17px;margin:3px 0}
+body[data-mode="dialog"] .translation{font-size:13px}
+body[data-mode="dialog"] .bubble button{min-height:38px;padding:6px 10px;margin-top:5px}
+body[data-mode="dialog"] .dialog-controls{border:0;padding-top:7px}
+body[data-mode="dialog"] .dialog-controls>.text-link{padding:5px 0}
+body[data-mode="dialog"] #dialog-form .input-label{display:none}
+body[data-mode="dialog"] #reply{min-height:48px;padding:10px 12px}
+body[data-mode="dialog"] #dialog-form .row{gap:8px;margin-top:8px}
+body[data-mode="dialog"] #dialog-form .row button{min-height:46px;padding:9px}
+body[data-mode="dialog"] .help-line{display:none}
+body[data-mode="dialog"] #dialog-feedback:empty{display:none}
+body[data-mode="dialog"] .feedback{padding:10px;margin-top:8px}
+body[data-mode="dialog"] #dialog-next{margin-top:8px}
+body[data-mode="dialog"] .progress-track,body[data-mode="dialog"] .progress-label{display:none}
+@media(max-width:600px){
+ body[data-mode="dictation"] #app .panel,body[data-mode="dialog"] #app .panel{margin:8px auto;padding:12px;border-radius:13px}
+ body[data-mode="dictation"] .listen-area{gap:8px}
+ body[data-mode="dictation"] .listen-area p{font-size:13px}
+ body[data-mode="dictation"] .listen-area .audio-btn{font-size:13px;padding-inline:8px}
+ body[data-mode="dictation"] .progress-label{font-size:11px}
+ body[data-mode="dialog"] .chat{max-height:30svh}
+}
 </style></head><body><aside class="sidebar"><a class="brand" href="./"><span class="logo">s.</span>schritt<span class="brand-dot">®</span></a><div class="brand-caption">德语，一步一步。</div><div class="nav-label">学习空间</div><nav aria-label="学习模块"><button data-mode="cards" class="nav active"><span>▧</span>单词记忆<span class="nav-en">Wörter</span></button><button data-mode="dictation" class="nav"><span>♫</span>听写练习<span class="nav-en">Diktat</span></button><button data-mode="dialog" class="nav"><span>☏</span>口语对话<span class="nav-en">Sprechen</span></button></nav><div class="side-bottom"><div class="level-icon">A1</div><div><strong>从零开始，也很好。</strong><p>每天一点点，慢慢说出来。</p></div></div></aside><main><header><div class="breadcrumb">我的德语学习 <span>/</span> <span id="crumb">单词记忆</span></div><span class="level-pill">A1 · 零基础入门</span></header><section class="page-heading"><div><div class="eyebrow">KLEINE SCHRITTE, GROSSE FORTSCHRITTE.</div><h1 id="title">今天，从一个单词开始<span>。</span></h1><p id="subtitle">先听发音，再想一想意思。不用着急，记住一个也是进步。</p></div><div class="lesson-badge"><b id="lesson-count">48</b><span id="lesson-unit">个入门单词</span></div></section><div id="app"></div><p class="save-note">无需登录，进度自动保存在此浏览器。同一设备、同一浏览器可继续学习；请使用普通浏览模式。清除网站数据、换设备或换浏览器不会保留进度；原网站的记录不会自动迁移。</p><footer><span>Schritt für Schritt. 一步一步来。</span><span><span id="save-status" role="status" aria-live="polite">正在恢复学习进度…</span> <button id="retry-save" class="text-link" hidden>重试保存</button></span></footer></main><div id="toast" role="status" aria-live="polite"></div><script>const topics=['认识彼此','我的家庭','食物饮品','数字时间','生活物品','常用动作'];
 const words=[
 ['Hallo','你好','问候语','Hallo! Ich bin Anna.','你好！我是安娜。',0],['Guten Morgen','早上好','问候语','Guten Morgen, Tom!','早上好，汤姆！',0],['Tschüss','再见','告别语','Tschüss! Bis morgen.','再见！明天见。',0],['danke','谢谢','礼貌用语','Danke für den Tee.','谢谢你的茶。',0],['bitte','请；不客气','礼貌用语','Ein Wasser, bitte.','请给我一杯水。',0],['der Name','名字','复数：die Namen','Mein Name ist Anna.','我的名字是安娜。',0],['Deutschland','德国','国家名','Ich wohne in Deutschland.','我住在德国。',0],['Deutsch','德语','语言名','Ich lerne Deutsch.','我在学德语。',0],
