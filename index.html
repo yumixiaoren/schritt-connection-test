@@ -179,89 +179,89 @@ body[data-mode="dictation"] .actions [data-action="dict-next"].dict-next-ready{b
 body[data-mode="dictation"] .actions [data-action="dict-next"].dict-next-correct{background:var(--green);border-color:var(--green)}
 </style></head><body><aside class="sidebar"><a class="brand" href="./"><span class="logo">s.</span>schritt<span class="brand-dot">®</span></a><div class="brand-caption">德语，一步一步。</div><div class="nav-label">学习空间</div><nav aria-label="学习模块"><button data-mode="cards" class="nav active"><span>▧</span>单词记忆<span class="nav-en">Wörter</span></button><button data-mode="dictation" class="nav"><span>♫</span>听写练习<span class="nav-en">Diktat</span></button><button data-mode="dialog" class="nav"><span>☏</span>口语对话<span class="nav-en">Sprechen</span></button></nav><div class="side-bottom"><div class="level-icon">A1</div><div><strong>从零开始，也很好。</strong><p>每天一点点，慢慢说出来。</p></div></div></aside><main><header><div class="breadcrumb">我的德语学习 <span>/</span> <span id="crumb">单词记忆</span></div><span class="level-pill">A1 · 零基础入门</span></header><section class="page-heading"><div><div class="eyebrow">KLEINE SCHRITTE, GROSSE FORTSCHRITTE.</div><h1 id="title">今天，从一个单词开始<span>。</span></h1><p id="subtitle">先听发音，再想一想意思。不用着急，记住一个也是进步。</p></div><div class="lesson-badge"><b id="lesson-count">48</b><span id="lesson-unit">个入门单词</span></div></section><div id="app"></div><p class="save-note">无需登录，进度自动保存在此浏览器。同一设备、同一浏览器可继续学习；请使用普通浏览模式。清除网站数据、换设备或换浏览器不会保留进度；原网站的记录不会自动迁移。</p><footer><span>Schritt für Schritt. 一步一步来。</span><span><span id="save-status" role="status" aria-live="polite">正在恢复学习进度…</span> <button id="retry-save" class="text-link" hidden>重试保存</button></span></footer></main><div id="toast" role="status" aria-live="polite"></div><script>const topics=['认识彼此','我的家庭','食物饮品','数字时间','生活物品','常用动作','课程与初见','家庭','饮食','居住','日常与时间','休闲与天气','持续学习'];
 const words=[
-["Hallo","你好","问候语","Hallo! Ich bin Anna.","你好！我是安娜。",0],
-["Guten Morgen","早上好","问候语","Guten Morgen, Tom!","早上好，汤姆！",0],
-["Tschüss","再见","告别语","Tschüss! Bis morgen.","再见！明天见。",0],
-["danke","谢谢","礼貌用语","Danke für den Tee.","谢谢你的茶。",0],
-["bitte","请；不客气","礼貌用语","Ein Wasser, bitte.","请给我一杯水。",0],
-["der Name","名字","复数：die Namen","Mein Name ist Anna.","我的名字是安娜。",0],
-["Deutschland","德国","国家名","Ich wohne in Deutschland.","我住在德国。",0],
-["Deutsch","德语","语言名","Ich lerne Deutsch.","我在学德语。",0],
-["die Familie","家庭","复数：die Familien","Meine Familie ist in China.","我的家人在中国。",1],
-["die Mutter","母亲","复数：die Mütter","Meine Mutter heißt Li.","我的母亲叫李。",1],
-["der Vater","父亲","复数：die Väter","Mein Vater kocht gern.","我的父亲喜欢做饭。",1],
-["der Bruder","兄弟","复数：die Brüder","Mein Bruder lernt Deutsch.","我的弟弟／哥哥在学德语。",1],
-["die Schwester","姐妹","复数：die Schwestern","Meine Schwester wohnt in Berlin.","我的姐姐／妹妹住在柏林。",1],
-["das Kind","孩子","复数：die Kinder","Das Kind spielt.","这个孩子在玩耍。",1],
-["der Freund","男性朋友；男朋友","复数：die Freunde","Mein Freund heißt Tim.","我的朋友叫蒂姆。",1],
-["die Katze","猫","复数：die Katzen","Die Katze schläft.","这只猫在睡觉。",1],
-["das Wasser","水","通常用单数","Ich trinke Wasser.","我喝水。",2],
-["das Brot","面包","复数：die Brote","Das Brot ist frisch.","面包很新鲜。",2],
-["der Kaffee","咖啡","饮品通常用单数","Ich trinke gern Kaffee.","我喜欢喝咖啡。",2],
-["der Tee","茶","复数：die Tees（不同茶类）","Der Tee ist heiß.","茶很烫。",2],
-["die Milch","牛奶","通常用单数","Ich kaufe Milch.","我买牛奶。",2],
-["der Apfel","苹果","复数：die Äpfel","Ich esse einen Apfel.","我吃一个苹果。",2],
-["das Ei","鸡蛋","复数：die Eier","Ich möchte ein Ei.","我想要一个鸡蛋。",2],
-["der Reis","米；米饭","通常用单数","Ich esse gern Reis.","我喜欢吃米饭。",2],
-["eins","一","数字 1","Eins, zwei, drei.","一、二、三。",3],
-["zwei","二","数字 2","Ich habe zwei Katzen.","我有两只猫。",3],
-["drei","三","数字 3","Drei Euro, bitte.","请付三欧元。",3],
-["zehn","十","数字 10","Es ist zehn Uhr.","现在十点。",3],
-["heute","今天","时间副词","Heute lerne ich Deutsch.","今天我学德语。",3],
-["morgen","明天","时间副词，注意小写","Morgen habe ich Zeit.","我明天有时间。",3],
-["der Tag","天；白天","复数：die Tage","Der Tag ist schön.","今天很美好。",3],
-["die Uhr","钟；表","复数：die Uhren","Die Uhr ist neu.","这个钟是新的。",3],
-["das Haus","房子","复数：die Häuser","Das Haus ist groß.","这座房子很大。",4],
-["das Zimmer","房间","复数：die Zimmer","Mein Zimmer ist klein.","我的房间很小。",4],
-["der Tisch","桌子","复数：die Tische","Der Tisch ist weiß.","这张桌子是白色的。",4],
-["der Stuhl","椅子","复数：die Stühle","Der Stuhl ist neu.","这把椅子是新的。",4],
-["das Buch","书","复数：die Bücher","Das Buch ist gut.","这本书很好。",4],
-["das Handy","手机","复数：die Handys","Mein Handy ist hier.","我的手机在这里。",4],
-["der Schlüssel","钥匙","复数：die Schlüssel","Wo ist mein Schlüssel?","我的钥匙在哪里？",4],
-["die Tasche","包","复数：die Taschen","Die Tasche ist blau.","这个包是蓝色的。",4],
-["lernen","学习","ich lerne · du lernst","Ich lerne jeden Tag.","我每天学习。",5],
-["sprechen","说话","ich spreche · du sprichst","Ich spreche ein bisschen Deutsch.","我会说一点德语。",5],
-["wohnen","居住","ich wohne · du wohnst","Ich wohne in Berlin.","我住在柏林。",5],
-["kommen","来","ich komme · du kommst","Ich komme aus China.","我来自中国。",5],
-["heißen","叫作","ich heiße · du heißt","Ich heiße Anna.","我叫安娜。",5],
-["trinken","喝","ich trinke · du trinkst","Was trinkst du?","你喝什么？",5],
-["essen","吃","ich esse · du isst","Was isst du gern?","你喜欢吃什么？",5],
-["haben","有","ich habe · du hast","Ich habe eine Frage.","我有一个问题。",5],
-["Kursvokabeln","课堂词汇","课程用语","Hören Sie bitte noch einmal.","请再听一遍。",12],
-["ansehen","看；观看","动词","Sehen Sie die Fotos an.","请看这些照片。",12],
-["das Bild","图片","复数：Bilder","Sehen Sie die Bilder an.","请看这些图片。",12],
-["hören","听","动词","Hören Sie.","请听。",12],
-["noch einmal","再一次","副词短语","Hören Sie noch einmal.","请再听一遍。",12],
-["ankreuzen","打勾；勾选","动词","Kreuzen Sie an.","请勾选。",12],
-["zuordnen","匹配；归类","动词","Ordnen Sie zu.","请匹配。",12],
-["ergänzen","补充；填空","动词","Ergänzen Sie.","请补充完整。",12],
-["machen","做","动词","Machen Sie einen Film.","请拍一部短片。",12],
-["der Kurs","课程","复数：Kurse","Sprechen Sie im Kurs.","请在课上说。",12],
-["lesen","读","动词","Lesen Sie die Gespräche.","请读这些对话。",12],
-["das Gespräch","对话","复数：Gespräche","Lesen Sie die Gespräche.","请读这些对话。",12],
-["spielen","演；玩","动词","Spielen Sie die Gespräche im Kurs.","请在课上演对话。",12],
-["suchen","寻找","动词","Suchen Sie.","请找一找。",12],
-["zeigen","展示；指给看","动词","Zeigen Sie.","请展示一下。",12],
-["fragen","询问","动词","Fragen Sie im Kurs.","请在课上提问。",12],
-["markieren","标记","动词","Markieren Sie.","请标记出来。",12],
-["die Frage","问题","复数：Fragen","Ergänzen Sie Fragen.","请补全问题。",12],
-["nachsprechen","跟读","动词","Hören Sie und sprechen Sie nach.","请听并跟读。",12],
-["raten","猜","动词","Raten Sie Wörter.","请猜词。",12],
-["das Wort","单词","复数：Wörter","Raten Sie Wörter aus der Lektion.","请猜本课的单词。",12],
-["die Lektion","课；单元","复数：Lektionen","Raten Sie Wörter aus der Lektion.","请猜本课的单词。",12],
-["meinen","认为；意思是","动词","Was meinen Sie?","您认为呢？",12],
-["sagen","说","动词","Was sagen die Personen?","这些人说了什么？",12],
-["die Person","人；人物","复数：Personen","Was sagen die Personen?","这些人说了什么？",12],
-["notieren","记下","动词","Notieren Sie.","请记下来。",12],
-["vergleichen","比较","动词","Vergleichen Sie.","请比较一下。",12],
-["schreiben","写","动词","Schreiben Sie Gespräche.","请写对话。",12],
-["variieren","变换；改编","动词","Variieren Sie.","请改编一下。",12],
-["erzählen","讲述","动词","Erzählen Sie.","请讲一讲。",12],
-["arbeiten","工作；学习","动词","Arbeiten Sie zu zweit.","请两人一组完成。",12],
-["zeichnen","画","动词","Zeichnen Sie.","请画一画。",12],
-["verbinden","连接；连线","动词","Hören Sie und verbinden Sie.","请听并连线。",12],
-["die Antwort","回答；答案","复数：Antworten","Schreiben Sie Fragen und Antworten.","请写出问题和答案。",12],
-["antworten","回答","动词","Fragen Sie und antworten Sie.","请提问并回答。",12],
+["Hallo","你好","问候语","Hallo! Ich bin Anna.","你好！我是安娜。",6],
+["Guten Morgen","早上好","问候语","Guten Morgen, Tom!","早上好，汤姆！",6],
+["Tschüss","再见","告别语","Tschüss! Bis morgen.","再见！明天见。",6],
+["danke","谢谢","礼貌用语","Danke für den Tee.","谢谢你的茶。",6],
+["bitte","请；不客气","礼貌用语","Ein Wasser, bitte.","请给我一杯水。",6],
+["der Name","名字","复数：die Namen","Mein Name ist Anna.","我的名字是安娜。",6],
+["Deutschland","德国","国家名","Ich wohne in Deutschland.","我住在德国。",6],
+["Deutsch","德语","语言名","Ich lerne Deutsch.","我在学德语。",6],
+["die Familie","家庭","复数：die Familien","Meine Familie ist in China.","我的家人在中国。",7],
+["die Mutter","母亲","复数：die Mütter","Meine Mutter heißt Li.","我的母亲叫李。",7],
+["der Vater","父亲","复数：die Väter","Mein Vater kocht gern.","我的父亲喜欢做饭。",7],
+["der Bruder","兄弟","复数：die Brüder","Mein Bruder lernt Deutsch.","我的弟弟／哥哥在学德语。",7],
+["die Schwester","姐妹","复数：die Schwestern","Meine Schwester wohnt in Berlin.","我的姐姐／妹妹住在柏林。",7],
+["das Kind","孩子","复数：die Kinder","Das Kind spielt.","这个孩子在玩耍。",7],
+["der Freund","男性朋友；男朋友","复数：die Freunde","Mein Freund heißt Tim.","我的朋友叫蒂姆。",11],
+["die Katze","猫","复数：die Katzen","Die Katze schläft.","这只猫在睡觉。",7],
+["das Wasser","水","通常用单数","Ich trinke Wasser.","我喝水。",8],
+["das Brot","面包","复数：die Brote","Das Brot ist frisch.","面包很新鲜。",8],
+["der Kaffee","咖啡","饮品通常用单数","Ich trinke gern Kaffee.","我喜欢喝咖啡。",8],
+["der Tee","茶","复数：die Tees（不同茶类）","Der Tee ist heiß.","茶很烫。",8],
+["die Milch","牛奶","通常用单数","Ich kaufe Milch.","我买牛奶。",8],
+["der Apfel","苹果","复数：die Äpfel","Ich esse einen Apfel.","我吃一个苹果。",8],
+["das Ei","鸡蛋","复数：die Eier","Ich möchte ein Ei.","我想要一个鸡蛋。",8],
+["der Reis","米；米饭","通常用单数","Ich esse gern Reis.","我喜欢吃米饭。",8],
+["eins","一","数字 1","Eins, zwei, drei.","一、二、三。",7],
+["zwei","二","数字 2","Ich habe zwei Katzen.","我有两只猫。",7],
+["drei","三","数字 3","Drei Euro, bitte.","请付三欧元。",7],
+["zehn","十","数字 10","Es ist zehn Uhr.","现在十点。",7],
+["heute","今天","时间副词","Heute lerne ich Deutsch.","今天我学德语。",11],
+["morgen","明天","时间副词，注意小写","Morgen habe ich Zeit.","我明天有时间。",11],
+["der Tag","天；白天","复数：die Tage","Der Tag ist schön.","今天很美好。",8],
+["die Uhr","钟；表","复数：die Uhren","Die Uhr ist neu.","这个钟是新的。",10],
+["das Haus","房子","复数：die Häuser","Das Haus ist groß.","这座房子很大。",9],
+["das Zimmer","房间","复数：die Zimmer","Mein Zimmer ist klein.","我的房间很小。",9],
+["der Tisch","桌子","复数：die Tische","Der Tisch ist weiß.","这张桌子是白色的。",9],
+["der Stuhl","椅子","复数：die Stühle","Der Stuhl ist neu.","这把椅子是新的。",9],
+["das Buch","书","复数：die Bücher","Das Buch ist gut.","这本书很好。",9],
+["das Handy","手机","复数：die Handys","Mein Handy ist hier.","我的手机在这里。",9],
+["der Schlüssel","钥匙","复数：die Schlüssel","Wo ist mein Schlüssel?","我的钥匙在哪里？",9],
+["die Tasche","包","复数：die Taschen","Die Tasche ist blau.","这个包是蓝色的。",9],
+["lernen","学习","ich lerne · du lernst","Ich lerne jeden Tag.","我每天学习。",7],
+["sprechen","说话","ich spreche · du sprichst","Ich spreche ein bisschen Deutsch.","我会说一点德语。",6],
+["wohnen","居住","ich wohne · du wohnst","Ich wohne in Berlin.","我住在柏林。",7],
+["kommen","来","ich komme · du kommst","Ich komme aus China.","我来自中国。",6],
+["heißen","叫作","ich heiße · du heißt","Ich heiße Anna.","我叫安娜。",6],
+["trinken","喝","ich trinke · du trinkst","Was trinkst du?","你喝什么？",8],
+["essen","吃","ich esse · du isst","Was isst du gern?","你喜欢吃什么？",8],
+["haben","有","ich habe · du hast","Ich habe eine Frage.","我有一个问题。",7],
+["Kursvokabeln","课堂词汇","课程用语","Hören Sie bitte noch einmal.","请再听一遍。",6],
+["ansehen","看；观看","动词","Sehen Sie die Fotos an.","请看这些照片。",6],
+["das Bild","图片","复数：Bilder","Sehen Sie die Bilder an.","请看这些图片。",6],
+["hören","听","动词","Hören Sie.","请听。",6],
+["noch einmal","再一次","副词短语","Hören Sie noch einmal.","请再听一遍。",6],
+["ankreuzen","打勾；勾选","动词","Kreuzen Sie an.","请勾选。",6],
+["zuordnen","匹配；归类","动词","Ordnen Sie zu.","请匹配。",6],
+["ergänzen","补充；填空","动词","Ergänzen Sie.","请补充完整。",6],
+["machen","做","动词","Machen Sie einen Film.","请拍一部短片。",6],
+["der Kurs","课程","复数：Kurse","Sprechen Sie im Kurs.","请在课上说。",6],
+["lesen","读","动词","Lesen Sie die Gespräche.","请读这些对话。",6],
+["das Gespräch","对话","复数：Gespräche","Lesen Sie die Gespräche.","请读这些对话。",6],
+["spielen","演；玩","动词","Spielen Sie die Gespräche im Kurs.","请在课上演对话。",6],
+["suchen","寻找","动词","Suchen Sie.","请找一找。",6],
+["zeigen","展示；指给看","动词","Zeigen Sie.","请展示一下。",6],
+["fragen","询问","动词","Fragen Sie im Kurs.","请在课上提问。",6],
+["markieren","标记","动词","Markieren Sie.","请标记出来。",6],
+["die Frage","问题","复数：Fragen","Ergänzen Sie Fragen.","请补全问题。",6],
+["nachsprechen","跟读","动词","Hören Sie und sprechen Sie nach.","请听并跟读。",6],
+["raten","猜","动词","Raten Sie Wörter.","请猜词。",6],
+["das Wort","单词","复数：Wörter","Raten Sie Wörter aus der Lektion.","请猜本课的单词。",6],
+["die Lektion","课；单元","复数：Lektionen","Raten Sie Wörter aus der Lektion.","请猜本课的单词。",6],
+["meinen","认为；意思是","动词","Was meinen Sie?","您认为呢？",6],
+["sagen","说","动词","Was sagen die Personen?","这些人说了什么？",6],
+["die Person","人；人物","复数：Personen","Was sagen die Personen?","这些人说了什么？",6],
+["notieren","记下","动词","Notieren Sie.","请记下来。",6],
+["vergleichen","比较","动词","Vergleichen Sie.","请比较一下。",6],
+["schreiben","写","动词","Schreiben Sie Gespräche.","请写对话。",6],
+["variieren","变换；改编","动词","Variieren Sie.","请改编一下。",6],
+["erzählen","讲述","动词","Erzählen Sie.","请讲一讲。",6],
+["arbeiten","工作；学习","动词","Arbeiten Sie zu zweit.","请两人一组完成。",6],
+["zeichnen","画","动词","Zeichnen Sie.","请画一画。",6],
+["verbinden","连接；连线","动词","Hören Sie und verbinden Sie.","请听并连线。",6],
+["die Antwort","回答；答案","复数：Antworten","Schreiben Sie Fragen und Antworten.","请写出问题和答案。",6],
+["antworten","回答","动词","Fragen Sie und antworten Sie.","请提问并回答。",6],
 ["das Foto","照片","复数：Fotos","Sehen Sie die Fotos an.","请看这些照片。",6],
 ["Guten Tag","您好；日安","问候语","Guten Tag.","您好。",6],
 ["Auf Wiedersehen","再见","正式告别","Auf Wiedersehen.","再见。",6],
@@ -777,6 +777,7 @@ const words=[
 ["das Plakat","海报","复数：Plakate","Machen Sie ein Plakat.","请制作一张海报。",12],
 ["der Comic","漫画","复数：Comics","Mein Tipp: Comics auf Deutsch lesen.","我的建议：读德语漫画。",12]
 ].map((w,id)=>({id,de:w[0],zh:w[1],note:w[2],example:w[3],translation:w[4],topic:w[5]}));
+const studyOrder=words.slice().sort((a,b)=>a.topic-b.topic||a.id-b.id).map(w=>w.id);
 const sentences=[['Hallo!','你好！'],['Ich heiße Anna.','我叫安娜。'],['Ich komme aus China.','我来自中国。'],['Ich wohne in Berlin.','我住在柏林。'],['Ich lerne Deutsch.','我在学德语。'],['Meine Familie ist klein.','我的家庭很小。'],['Ich habe einen Bruder.','我有一个兄弟。'],['Meine Mutter heißt Li.','我的母亲叫李。'],['Ich trinke Wasser.','我喝水。'],['Ein Kaffee, bitte.','请给我一杯咖啡。'],['Das Brot ist frisch.','面包很新鲜。'],['Ich esse einen Apfel.','我吃一个苹果。'],['Es ist zehn Uhr.','现在十点。'],['Morgen habe ich Zeit.','我明天有时间。'],['Wo ist mein Handy?','我的手机在哪里？'],['Ich habe eine Frage.','我有一个问题。']];
 const scenes=[
 {title:'初次见面',role:'Anna',description:'打招呼，介绍自己的名字和来处。',turns:[['Hallo! Wie heißt du?','你好！你叫什么名字？','Ich heiße Li.','我叫李。','ich heiße'],['Freut mich! Woher kommst du?','很高兴认识你！你来自哪里？','Ich komme aus China.','我来自中国。','ich komme aus'],['Wo wohnst du?','你住在哪里？','Ich wohne in Berlin.','我住在柏林。','ich wohne in'],['Lernst du Deutsch?','你在学德语吗？','Ja, ich lerne Deutsch.','是的，我在学德语。','ich lerne deutsch']]},
@@ -787,7 +788,7 @@ const scenes=[
 </script><script>
 'use strict';
 const $=s=>document.querySelector(s);const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let mode='cards',topic=-1,queue=words.map(w=>w.id),pos=0,flipped=false,known=new Set(),again=new Set(),fuzzy=new Set(),dictIndex=0,dictType='word',checked=false,dictScore=0,dictDone=0,sceneIndex=0,turn=0,chat=[],dialogFinished=false,showHelp=false,recognition=null,recognizing=false,toastTimer,dictDraft='',replyDraft='',replySubmitted=false,dictHint=false,swipeStart=null,swipeSuppressUntil=0;
+let mode='cards',topic=-1,queue=studyOrder.slice(),pos=0,flipped=false,known=new Set(),again=new Set(),fuzzy=new Set(),dictIndex=0,dictType='word',checked=false,dictScore=0,dictDone=0,sceneIndex=0,turn=0,chat=[],dialogFinished=false,showHelp=false,recognition=null,recognizing=false,toastTimer,dictDraft='',replyDraft='',replySubmitted=false,dictHint=false,swipeStart=null,swipeSuppressUntil=0;
 
 const normalize=s=>s.normalize('NFC').toLowerCase().replace(/[.,!?;:"„“]/g,'').replace(/\s+/g,' ').trim();
 function notify(t){$('#toast').textContent=t;$('#toast').style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').style.display='none',5500)}
@@ -806,8 +807,8 @@ function gradeDictation(restoring=false){if(checked&&!restoring)return;let a=$('
 function acceptReply(){let input=$('#reply'),value=input.value.trim();if(!value){notify('先说一句或输入你的回答。');return}stopRecognition();replyDraft=value;replySubmitted=true;scheduleSave();const t=scenes[sceneIndex].turns[turn],ok=normalize(value).includes(normalize(t[4]));const el=$('#dialog-feedback');el.className='feedback'+(ok?'':' wrong');el.textContent=ok?'✓ 用到了本轮的练习句式。也可以听听参考回答，比较一下。':'已收到你的回答。参考句式：'+t[2]+'\n本练习只做关键词匹配，其他表达也可能正确。';const next=$('#dialog-next');next.hidden=false;next.innerHTML=button('听参考回答','sample-audio')+button(turn===scenes[sceneIndex].turns.length-1?'完成对话':'继续下一轮','dialog-next','primary');next.querySelector('[data-action="sample-audio"]').onclick=()=>speak(t[2]);next.querySelector('[data-action="dialog-next"]').onclick=()=>{chat.push({text:t[0],zh:t[1]},{text:value,mine:true});turn++;dialogFinished=turn>=scenes[sceneIndex].turns.length;showHelp=false;replyDraft='';replySubmitted=false;render();$('#chat')?.scrollTo(0,$('#chat').scrollHeight)};}
 function stopRecognition(){if(recognition){recognition.abort();recognition=null}recognizing=false}
 function startRecognition(){if(recognizing){stopRecognition();const b=$('[data-action="record"]');if(b){b.textContent='♩ 语音输入';b.classList.remove('recording')}return}const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){notify('当前浏览器不支持语音识别。可以使用 Chrome，或直接打字练习。');return}if('speechSynthesis'in window)speechSynthesis.cancel();const r=new SR();recognition=r;r.lang='de-DE';r.interimResults=false;r.continuous=false;r.onstart=()=>{recognizing=true;const b=$('[data-action="record"]');if(b){b.textContent='正在听… 点击停止';b.classList.add('recording')}};r.onresult=e=>{if(mode==='dialog'&&$('#reply')){$('#reply').value=e.results[0][0].transcript;replyDraft=$('#reply').value;replySubmitted=false;scheduleSave();notify('已转成文字，检查后点击提交回答。')}};r.onerror=e=>{if(e.error==='aborted')return;notify(e.error==='not-allowed'?'麦克风权限未开启，可以允许后重试，或打字练习。':e.error==='no-speech'?'没有听到声音，请再试一次。':'语音识别暂时不可用，请打字继续练习。')};r.onend=()=>{recognizing=false;recognition=null;const b=$('[data-action="record"]');if(b){b.textContent='♩ 语音输入';b.classList.remove('recording')}};try{r.start()}catch{stopRecognition();notify('无法启动语音识别，请打字继续。')}}
-function setTopic(value){topic=value;queue=words.filter(w=>topic<0||w.topic===topic).map(w=>w.id);pos=0;flipped=false;render()}
-function action(a){const w=words[queue[pos]];switch(a){case'flip':{flipped=!flipped;const inner=$('.card-inner'),front=$('.card-face-front'),back=$('.card-face-back');if(inner){inner.classList.toggle('is-flipped',flipped);front?.setAttribute('aria-hidden',String(flipped));back?.setAttribute('aria-hidden',String(!flipped));$('.card-front')?.setAttribute('aria-label','点击卡片翻面看释义；左滑不认识，下滑模糊，右滑认识')}scheduleSave();break;}case'word-audio':speak(w.de);break;case'example-audio':speak(w.example);break;case'known':known.add(w.id);again.delete(w.id);fuzzy.delete(w.id);pos++;flipped=false;render();break;case'again':again.add(w.id);known.delete(w.id);fuzzy.delete(w.id);pos++;flipped=false;render();break;case'blur':fuzzy.add(w.id);known.delete(w.id);again.delete(w.id);pos++;flipped=false;render();break;case'restart':setTopic(topic);break;case'review':queue=words.filter(w=>again.has(w.id)&&(topic<0||w.topic===topic)).map(w=>w.id);if(!queue.length){notify('当前主题没有待复习单词。');setTopic(topic)}else{pos=0;flipped=false;render()}break;case'dict-audio':speak(dictItems()[dictIndex][0],0.85);break;case'dict-slow':speak(dictItems()[dictIndex][0],0.65);break;case'dict-hint':dictHint=true;$('#dict-hint').textContent=dictItems()[dictIndex][1];scheduleSave();break;case'dict-next':dictIndex++;checked=false;dictDraft='';dictHint=false;render();break;case'dict-restart':dictIndex=0;dictScore=0;dictDone=0;checked=false;dictDraft='';dictHint=false;render();break;case'dialog-audio':speak(scenes[sceneIndex].turns[turn][0]);break;case'sample-audio':speak(scenes[sceneIndex].turns[turn][2]);break;case'dialog-help':{const val=$('#reply')?.value;showHelp=!showHelp;render();if($('#reply'))$('#reply').value=val||'';break}case'dialog-restart':resetDialog();break;case'record':startRecognition();break;}}
+function setTopic(value){topic=value;queue=studyOrder.filter(id=>topic<0||words[id].topic===topic);pos=0;flipped=false;render()}
+function action(a){const w=words[queue[pos]];switch(a){case'flip':{flipped=!flipped;const inner=$('.card-inner'),front=$('.card-face-front'),back=$('.card-face-back');if(inner){inner.classList.toggle('is-flipped',flipped);front?.setAttribute('aria-hidden',String(flipped));back?.setAttribute('aria-hidden',String(!flipped));$('.card-front')?.setAttribute('aria-label','点击卡片翻面看释义；左滑不认识，下滑模糊，右滑认识')}scheduleSave();break;}case'word-audio':speak(w.de);break;case'example-audio':speak(w.example);break;case'known':known.add(w.id);again.delete(w.id);fuzzy.delete(w.id);pos++;flipped=false;render();break;case'again':again.add(w.id);known.delete(w.id);fuzzy.delete(w.id);pos++;flipped=false;render();break;case'blur':fuzzy.add(w.id);known.delete(w.id);again.delete(w.id);pos++;flipped=false;render();break;case'restart':setTopic(topic);break;case'review':queue=studyOrder.filter(id=>again.has(id)&&(topic<0||words[id].topic===topic));if(!queue.length){notify('当前主题没有待复习单词。');setTopic(topic)}else{pos=0;flipped=false;render()}break;case'dict-audio':speak(dictItems()[dictIndex][0],0.85);break;case'dict-slow':speak(dictItems()[dictIndex][0],0.65);break;case'dict-hint':dictHint=true;$('#dict-hint').textContent=dictItems()[dictIndex][1];scheduleSave();break;case'dict-next':dictIndex++;checked=false;dictDraft='';dictHint=false;render();break;case'dict-restart':dictIndex=0;dictScore=0;dictDone=0;checked=false;dictDraft='';dictHint=false;render();break;case'dialog-audio':speak(scenes[sceneIndex].turns[turn][0]);break;case'sample-audio':speak(scenes[sceneIndex].turns[turn][2]);break;case'dialog-help':{const val=$('#reply')?.value;showHelp=!showHelp;render();if($('#reply'))$('#reply').value=val||'';break}case'dialog-restart':resetDialog();break;case'record':startRecognition();break;}}
 function bindCardSwipe(){
  const card=$('.card-front');if(!card)return;
  const stack=card.closest('.card-stack'),back=stack?.querySelector('.card-back');
@@ -829,13 +830,13 @@ function bind(){document.querySelectorAll('[data-action]').forEach(b=>b.onclick=
 const PROGRESS_FIELDS=['mode','topic','queue','pos','flipped','known','again','fuzzy','dictIndex','dictType','checked','dictScore','dictDone','sceneIndex','turn','chat','dialogFinished','showHelp','dictDraft','replyDraft','replySubmitted','dictHint'];
 const STORAGE_KEY='schritt-learning-progress-v1';
 let progressReady=false,lastSaved='',lastPersisted=null,saveBlocked=false;
-function snapshot(){return {version:1,mode,topic,queue,pos,flipped,known:[...known],again:[...again],fuzzy:[...fuzzy],dictIndex,dictType,checked,dictScore,dictDone,sceneIndex,turn,chat,dialogFinished,showHelp,dictDraft,replyDraft,replySubmitted,dictHint};}
+function snapshot(){return {version:1,orderVersion:1,mode,topic,queue,pos,flipped,known:[...known],again:[...again],fuzzy:[...fuzzy],dictIndex,dictType,checked,dictScore,dictDone,sceneIndex,turn,chat,dialogFinished,showHelp,dictDraft,replyDraft,replySubmitted,dictHint};}
 function loadSnapshot(s){
  const integer=(n,min,max)=>Number.isInteger(n)&&n>=min&&n<=max;
  const ids=a=>Array.isArray(a)&&a.length<=words.length&&a.every(n=>integer(n,0,words.length-1))&&new Set(a).size===a.length;
- if(!s||s.version!==1||!['cards','dictation','dialog'].includes(s.mode)||!integer(s.topic,-1,topics.length-1)||!ids(s.queue)||!s.queue.length||!integer(s.pos,0,s.queue.length)||!ids(s.known)||!ids(s.again)||!ids(s.fuzzy||[])||s.known.some(id=>s.again.includes(id)||s.fuzzy?.includes(id))||s.again.some(id=>s.fuzzy?.includes(id))||!['sentence','word'].includes(s.dictType)||!integer(s.dictIndex,0,s.dictType==='word'?words.length:sentences.length)||!integer(s.dictDone,0,s.dictType==='word'?words.length:sentences.length)||!integer(s.dictScore,0,s.dictDone)||!integer(s.sceneIndex,0,scenes.length-1)||!integer(s.turn,0,scenes[s.sceneIndex].turns.length)||!Array.isArray(s.chat)||s.chat.length!==s.turn*2||s.chat.some(x=>!x||typeof x.text!=='string'||x.text.length>2000||x.zh!==undefined&&typeof x.zh!=='string')||typeof s.dictDraft!=='string'||s.dictDraft.length>2000||typeof s.replyDraft!=='string'||s.replyDraft.length>2000)throw Error('保存的进度格式无法读取，请保留此页面并联系维护者。');
+ if(!s||s.version!==1||s.orderVersion!==undefined&&s.orderVersion!==1||!['cards','dictation','dialog'].includes(s.mode)||!integer(s.topic,-1,topics.length-1)||!ids(s.queue)||!s.queue.length||!integer(s.pos,0,s.queue.length)||!ids(s.known)||!ids(s.again)||!ids(s.fuzzy||[])||s.known.some(id=>s.again.includes(id)||s.fuzzy?.includes(id))||s.again.some(id=>s.fuzzy?.includes(id))||!['sentence','word'].includes(s.dictType)||!integer(s.dictIndex,0,s.dictType==='word'?words.length:sentences.length)||!integer(s.dictDone,0,s.dictType==='word'?words.length:sentences.length)||!integer(s.dictScore,0,s.dictDone)||!integer(s.sceneIndex,0,scenes.length-1)||!integer(s.turn,0,scenes[s.sceneIndex].turns.length)||!Array.isArray(s.chat)||s.chat.length!==s.turn*2||s.chat.some(x=>!x||typeof x.text!=='string'||x.text.length>2000||x.zh!==undefined&&typeof x.zh!=='string')||typeof s.dictDraft!=='string'||s.dictDraft.length>2000||typeof s.replyDraft!=='string'||s.replyDraft.length>2000)throw Error('保存的进度格式无法读取，请保留此页面并联系维护者。');
  if(['flipped','checked','dialogFinished','showHelp','replySubmitted','dictHint'].some(k=>typeof s[k]!=='boolean')||s.dialogFinished!==(s.turn===scenes[s.sceneIndex].turns.length)||s.checked&&(!s.dictDraft||s.dictIndex>=(s.dictType==='word'?words.length:sentences.length))||s.replySubmitted&&!s.replyDraft)throw Error('保存的进度状态不一致，请联系维护者。');
- ({mode,topic,queue,pos,flipped,dictIndex,dictType,checked,dictScore,dictDone,sceneIndex,turn,chat,dialogFinished,showHelp,dictDraft,replyDraft,replySubmitted,dictHint}=s);const queued=new Set(queue),wasOriginalFullQueue=s.topic===-1&&s.queue.length===48;queue.push(...words.filter(w=>w.id>=48&&((wasOriginalFullQueue&&topic===-1)||w.topic===topic)&&!queued.has(w.id)).map(w=>w.id));known=new Set(s.known);again=new Set(s.again);fuzzy=new Set(s.fuzzy||[]);if(dictType==='sentence'){try{localStorage.setItem(STORAGE_KEY+'-sentence-backup',JSON.stringify(s))}catch{}dictType='word';dictIndex=0;checked=false;dictScore=0;dictDone=0;dictDraft='';dictHint=false;}
+ ({mode,topic,queue,pos,flipped,dictIndex,dictType,checked,dictScore,dictDone,sceneIndex,turn,chat,dialogFinished,showHelp,dictDraft,replyDraft,replySubmitted,dictHint}=s);if(s.orderVersion!==1){const remaining=s.queue.slice(s.pos);const wasOriginalFullQueue=s.topic===-1&&s.queue.length===48&&s.queue.every((id,i)=>id===i)&&s.again.length!==48;if(wasOriginalFullQueue)remaining.push(...studyOrder.filter(id=>id>=48));remaining.sort((a,b)=>words[a].topic-words[b].topic||a-b);queue=remaining;pos=0;}known=new Set(s.known);again=new Set(s.again);fuzzy=new Set(s.fuzzy||[]);if(dictType==='sentence'){try{localStorage.setItem(STORAGE_KEY+'-sentence-backup',JSON.stringify(s))}catch{}dictType='word';dictIndex=0;checked=false;dictScore=0;dictDone=0;dictDraft='';dictHint=false;}
 }
 function saveStatus(message,failed=false){const e=$('#save-status');if(e){e.textContent=message;e.classList.toggle('save-error',failed)}const retry=$('#retry-save');if(retry)retry.hidden=!failed;}
 function restoreInputs(){
